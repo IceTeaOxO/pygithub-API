@@ -11,19 +11,20 @@ class GithubDB:
     def __init__(self,dbfile):
         self.conn = sqlite3.connect(dbfile)
         self.cursor = self.conn.cursor()
+        #預先創建table
+        self.create_table('github')
 #ID INTEGER PRIMARY KEY AUTOINCREMENT,
     def create_table(self,table_name):
-        create_query = f'''CREATE TABLE IF NOT EXISTS {table_name} (
-                            AuthName TEXT,
-                            RepoName TEXT,
-                            URL TEXT,
-                            Issues INTEGER,
-                            Stars INTEGER,
-                            UpdateDate TEXT,
-                            ReadmePath TEXT,
-                            Language TEXT,
-                            PRIMARY KEY (AuthName,RepoName)
-                          )'''
+        create_query = f'''CREATE TABLE IF NOT EXISTS {table_name} 
+                        (ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        AuthName TEXT NOT NULL,
+                        RepoName TEXT NOT NULL,
+                        URL TEXT NOT NULL,
+                        Issues INTEGER,
+                        Stars INTEGER,
+                        UpdateDate TEXT,
+                        ReadmePath TEXT,
+                        Language TEXT);'''
         self.cursor.execute(create_query)
         
         
