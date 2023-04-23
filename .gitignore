@@ -7,7 +7,15 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+Python
 .Python
+Github_Trending_Weekly
+Github_Trending_Daily
+test.py
+other
+repoID.md
+repo.md
+
 build/
 develop-eggs/
 dist/
