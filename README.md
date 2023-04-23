@@ -8,3 +8,11 @@
 4. 啟動detail.py取得專案的詳細資料，並將資料存入sqlite
 5. 啟動API.py開啟server，在網址列輸入```http://127.0.0.1:8000/repos```即可獲取資料庫裡的資料
 6. 提供兩種參數可調整回傳的結果`limit`限制回傳的資料數量`offset`指定從第幾筆資料開始回傳
+
+## 取得github trending
+1. 啟動timeTask.py，每隔1天會抓取一次github trending
+2. 打開API.py，在網址列輸入`http://127.0.0.1:8000/trendingDaily`
+
+## 未解決問題
+1. 增加github trending可以跳轉到不同日期的方法
+2. 提供更好的系統設計方法，可以發pr
