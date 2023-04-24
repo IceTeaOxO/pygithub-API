@@ -1,9 +1,10 @@
 from fastapi import FastAPI,Response
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse,HTMLResponse
 import os
 import json
 import DB
 from fastapi.middleware.cors import CORSMiddleware
+import Trending
 
 app = FastAPI()
 
@@ -33,6 +34,14 @@ async def repos(limit=10,offset=0):
     result = db.select_data('github',limit=limit,offset=offset)
     json_result = json.dumps(result)
     return Response(content=json_result, media_type="application/json")
+@app.get("/trendingDaily")
+async def trending_daily():
+    data = Trending.getDayTrending()
+    return HTMLResponse(content=data, status_code=200)
+@app.get("/trendingWeekly")
+async def trending_weekly():
+    data = Trending.getWeeklyTrending()
+    return HTMLResponse(content=data, status_code=200)
 
 @app.get("/issues")
 async def issues():
