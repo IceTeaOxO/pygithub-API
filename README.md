@@ -16,3 +16,12 @@
 ## 未解決問題
 1. 增加github trending可以跳轉到不同日期的方法
 2. 提供更好的系統設計方法，可以發pr
+
+## Demo
+這只是後端，可以自己寫一個前端來呈現畫面，也可以直接使用[這裡](https://github.com/IceTeaOxO/GithubReport)的React模板來Demo。
+
+## UI畫面
+![UI](UI.png)
+
+## 資料庫資料
+![DB](DB.png)
